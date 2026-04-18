@@ -15,7 +15,7 @@ base_dir <- "."
 
 ebd_file <- file.path(
   base_dir,
-  "data_raw/ebd/ebd_US-VA_unv_smp_relMar-2026.txt"
+  "data_raw/ebd/ebd_US-VA_smp_relMar-2026.txt"
 )
 
 vbwt_sites_file <- file.path(
