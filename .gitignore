@@ -1,4 +1,40 @@
-.Rproj.user
+# ---------------------------
+# R / RStudio
+# ---------------------------
 .Rhistory
 .RData
+.Rproj.user/
 .Ruserdata
+
+# ---------------------------
+# macOS
+# ---------------------------
+.DS_Store
+
+# ---------------------------
+# Large raw data (DO NOT COMMIT)
+# ---------------------------
+data_raw/ebd/
+
+# ---------------------------
+# Processed intermediate files
+# ---------------------------
+data_processed/*.txt
+data_processed/*.csv
+
+# ---------------------------
+# Cache outputs (rebuildable)
+# ---------------------------
+data_processed/caches/
+data_processed/caches_exclude_self/
+
+# ---------------------------
+# Temporary / misc
+# ---------------------------
+*.log
+*.tmp
+
+# ---------------------------
+# Optional: if you ever export reports
+# ---------------------------
+outputs/
