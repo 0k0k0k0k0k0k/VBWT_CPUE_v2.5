@@ -96,7 +96,7 @@ ui <- fluidPage(
       radioButtons(
         "checklist_source",
         "Checklist Source:",
-        choices = c("All Checklists", "Exclude My Checklists"),
+        choices = c("All Checklists", "Exclude Lisa's Checklists"),
         selected = "All Checklists"
       ),
       
@@ -155,7 +155,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   selected_cache_dir <- reactive({
-    if (input$checklist_source == "Exclude My Checklists") {
+    if (input$checklist_source == "Exclude Lisa's Checklists") {
       cache_dir_exclude_self
     } else {
       cache_dir_all
@@ -397,7 +397,7 @@ server <- function(input, output, session) {
   
   output$download_csv <- downloadHandler(
     filename = function() {
-      if (input$checklist_source == "Exclude My Checklists") {
+      if (input$checklist_source == "Exclude Lisa's Checklists") {
         paste0("vbwt_cpue_exclude_self_", Sys.Date(), ".csv")
       } else {
         paste0("vbwt_cpue_statewide_", Sys.Date(), ".csv")
