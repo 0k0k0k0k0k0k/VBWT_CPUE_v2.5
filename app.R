@@ -1,3 +1,4 @@
+# app.R
 # VBWT CPUE v2 FINAL
 
 library(shiny)
@@ -145,7 +146,7 @@ ui <- fluidPage(
           
           h4("Top Hidden Gems"),
           DTOutput("gems_table"),
-          br(),
+          br()
         )
       )
     )
@@ -337,12 +338,11 @@ server <- function(input, output, session) {
           "<b>Site:</b> ", SiteName,
           "<br><b>Normalized CPUE:</b> ", ifelse(is.na(Normalized_CPUE), "NA", format(round(Normalized_CPUE, 4), nsmall = 4)),
           "<br><b>Hidden Gem Score:</b> ", ifelse(is.na(gem_score), "NA", format(round(gem_score, 4), nsmall = 4)),
-          "<br><b>Category:</b> ", category
+          "<br><b>Category:</b> ", category,
           "<br><b>Hotspot ID:</b> ", HotspotID,
           "<br><b>Total Checklists:</b> ", format(TotalChecklists, big.mark = ","),
           "<br><b>Total Species:</b> ", ifelse(is.na(TotalSpecies), "NA", format(TotalSpecies, big.mark = ",")),
-          "<br><b>Avg. Species per Checklist:</b> ", ifelse(is.na(Checklist_CPUE), "NA", format(round(Checklist_CPUE, 4), nsmall = 4)),
-    
+          "<br><b>Avg. Species per Checklist:</b> ", ifelse(is.na(Checklist_CPUE), "NA", format(round(Checklist_CPUE, 4), nsmall = 4))
         )
       ) %>%
       fitBounds(
@@ -393,7 +393,6 @@ server <- function(input, output, session) {
       rownames = FALSE
     )
   })
-  
   
   output$download_csv <- downloadHandler(
     filename = function() {
