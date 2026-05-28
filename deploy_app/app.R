@@ -1,3 +1,4 @@
+# app.R
 # VBWT CPUE v2 FINAL
 
 library(shiny)
@@ -96,7 +97,7 @@ ui <- fluidPage(
       radioButtons(
         "checklist_source",
         "Checklist Source:",
-        choices = c("All Checklists", "Exclude My Checklists"),
+        choices = c("All Checklists", "Exclude Lisa's Checklists"),
         selected = "All Checklists"
       ),
       
@@ -145,7 +146,7 @@ ui <- fluidPage(
           
           h4("Top Hidden Gems"),
           DTOutput("gems_table"),
-          br(),
+          br()
         )
       )
     )
@@ -155,7 +156,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   selected_cache_dir <- reactive({
-    if (input$checklist_source == "Exclude My Checklists") {
+    if (input$checklist_source == "Exclude Lisa's Checklists") {
       cache_dir_exclude_self
     } else {
       cache_dir_all
@@ -337,12 +338,11 @@ server <- function(input, output, session) {
           "<b>Site:</b> ", SiteName,
           "<br><b>Normalized CPUE:</b> ", ifelse(is.na(Normalized_CPUE), "NA", format(round(Normalized_CPUE, 4), nsmall = 4)),
           "<br><b>Hidden Gem Score:</b> ", ifelse(is.na(gem_score), "NA", format(round(gem_score, 4), nsmall = 4)),
-          "<br><b>Category:</b> ", category
+          "<br><b>Category:</b> ", category,
           "<br><b>Hotspot ID:</b> ", HotspotID,
           "<br><b>Total Checklists:</b> ", format(TotalChecklists, big.mark = ","),
           "<br><b>Total Species:</b> ", ifelse(is.na(TotalSpecies), "NA", format(TotalSpecies, big.mark = ",")),
-          "<br><b>Avg. Species per Checklist:</b> ", ifelse(is.na(Checklist_CPUE), "NA", format(round(Checklist_CPUE, 4), nsmall = 4)),
-    
+          "<br><b>Avg. Species per Checklist:</b> ", ifelse(is.na(Checklist_CPUE), "NA", format(round(Checklist_CPUE, 4), nsmall = 4))
         )
       ) %>%
       fitBounds(
@@ -394,10 +394,9 @@ server <- function(input, output, session) {
     )
   })
   
-  
   output$download_csv <- downloadHandler(
     filename = function() {
-      if (input$checklist_source == "Exclude My Checklists") {
+      if (input$checklist_source == "Exclude Lisa's Checklists") {
         paste0("vbwt_cpue_exclude_self_", Sys.Date(), ".csv")
       } else {
         paste0("vbwt_cpue_statewide_", Sys.Date(), ".csv")

@@ -1,0 +1,24 @@
+Deploy dependency report for: vbwt_cpue_v2_5
+Generated: 2026-05-28 12:38:40
+Project folder: /Users/lisamease/Projects/Shiny App Folder/VBWT_CPUE_v2.5
+Shared data folder: /Users/lisamease/Projects/Shiny App Folder/Data
+
+Copied dependencies:
+  data_processed/caches
+  data_processed/caches_exclude_self
+
+Mapped copies:
+  none
+
+Resolved from shared Data folder:
+  none
+
+Large copied files needing review:
+  none
+
+Missing detected paths:
+  none
+
+Skipped paths:
+  none
+
