@@ -1,0 +1,12 @@
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+rsconnect/
+*.log
+
+# Keep giant raw EBD inputs out of publish packages
+data_raw/ebd/
+
+# Keep known LFS/too-large VBWT file out of Connect Cloud deploys
+data_processed/slim/authoritative_location_core.qs2
